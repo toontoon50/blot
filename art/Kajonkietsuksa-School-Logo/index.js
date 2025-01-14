@@ -1,5 +1,5 @@
 /*
-@title: Kajonkietsuksa School Logo
+@title: kajonkietsuksa_logo
 @author: toontoon
 @snapshot: snapshot.png
 */
@@ -10,6 +10,48 @@ const height = 125;
 setDocDimensions(width, height);
 //text eng__________________________________________________________
 const t = new bt.Turtle();
+
+// console.log(t);
+
+// t.left = function (num) {
+//   console.log(`LEFT ${num}`);
+//   return t.left(num);
+// }
+
+// testArr.map((lol) => lol * 10)
+
+const scale = 1
+
+const originalLeft = t.left;
+const originalRight = t.right;
+const originalJump = t.jump;
+const originalForward = t.forward;
+
+// t.left = function (...args) {
+//   console.log(`LEFT`, ...args);
+//   return originalLeft.apply(t, args.map((lol) => lol * scale));
+// };
+
+// t.right = function (...args) {
+//   console.log(`RIGHT`, ...args);
+//   return originalRight.apply(t, args.map((lol) => lol * scale));
+// };
+
+t.jump = function (...args) {
+  console.log(`JUMP`, ...args);
+
+  const converted = args.map((lol) => {
+    console.log(lol);
+    return lol.map((ddd) => ddd * scale);
+  });
+  console.log("CONVERTED", converted[0]);
+  return originalJump.apply(t, converted);
+};
+
+t.forward = function (...args) {
+  console.log(`FORWARD`, ...args);
+  return originalForward.apply(t, args.map((lol) => lol * scale));
+};
 
 
 //_______________________________________________________________
