@@ -53,6 +53,66 @@ t.forward = function (...args) {
   return originalForward.apply(t, args.map((lol) => lol * scale));
 };
 
+function drawSnow(offsetcords, snowSize) {
+  let lineSize = snowSize / 2;
+
+  for (let i = 0; i < 8;i++) {
+      t.jump(offsetcords);
+      t.forward(lineSize);
+      t.left(45);
+  }
+}
+
+function randomFromRange(min,max) {
+  return parseInt((Math.random() * (max - min) + min).toString().split(".")[0])
+}
+
+let bypass = 0;
+
+function randomSnow(coords) {
+  let randomSize = randomFromRange(5, 10);
+
+  bypass = randomSize + 2;
+
+  drawSnow(coords, randomSize);
+
+  console.log("Draw snow random");
+}
+
+// drawSnow([6, 100], 10);
+
+// 12 cus padding
+// max snow size is 10
+// extra 2
+
+// for (let x = 12;x<height;x++) {
+  // for (let y = 12;y<width;y++) {
+  //   if (bypass > 0) {
+  //     bypass--;
+  //     continue;
+  //   }
+    
+  //   let random = randomFromRange(1,4);
+
+  //   console.log("snow random", random);
+
+  //   console.log("loop snow");
+  //   if (random == 1) {
+  //     randomSnow([12,y])
+  //   }
+    
+  // }
+// }
+
+let rangelol = randomFromRange(13,23)
+
+for (let x = 0;x<rangelol;x++){
+
+randomSnow([randomFromRange(10, 120), randomFromRange(10, 120)])
+}
+t.jump([0,0]);
+t.setAngle(0);
+
 
 //_______________________________________________________________
 //leaf
@@ -152,6 +212,7 @@ t.right(39)
 t.forward(1)
 for (let i = 0; i < 6; i++)t.left(4).forward(1.48)
 //----------------------------------
+//text
 t.jump([15.625,7])
 t.right(56.37)
 t.forward(93.75)
@@ -419,27 +480,27 @@ t.right(-102)
 for (let i = 0; i < 26; i++)t.right(-2.89).forward(0.022)
 t.right(-11)
 t.forward(0.7)
-t.left(196)
+t.left(195)
 t.forward(1.2)
 for (let i = 0; i < 55; i++)t.left(-3.26).forward(0.031)
 t.forward(1.1)
 t.jump([70.26,29.85])
-t.right(45)
+t.right(54)
 t.forward(0.5)
 t.jump([68.96,30.59])
-t.right(224)
+t.right(214)
 t.forward(1)
 for (let i = 0; i < 99; i++)t.right(-3.26).forward(0.010)
 t.jump([70.91,28.02])
-t.right(232)
+t.right(234)
 t.right(2)
-t.forward(1.1)
+t.forward(1.3)
 for (let i = 0; i < 22; i++)t.left(-3.66).forward(0.024)
 t.forward(0.3)
-t.left(164)
+t.left(153)
 t.forward(1)
 for (let i = 0; i < 1; i++)t.right(510).forward(1)
-for (let i = 0; i < 31; i++)t.left(-3.66).forward(0.043)
+for (let i = 0; i < 31; i++)t.left(-3.23).forward(0.043)
 t.forward(1.4)
 t.jump([73.44,29.91])
 t.forward(1.4)
